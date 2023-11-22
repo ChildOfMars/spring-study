@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="studentDao" class="demo1.dao.impl.StudentDaoImpl"></bean>
+	<bean id="studentService" class="demo1.service.impl.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="student" class="demo1.bean.Student">
+		<property name="name">
+			<value>张三</value>
+		</property>
+		<property name="age">
+			<value>18</value>
+		</property>
+		<constructor-arg>
+			<value>李四</value>
+			<value>20</value>
+		</constructor-arg>
+	</bean>
+    
+
+</beans>

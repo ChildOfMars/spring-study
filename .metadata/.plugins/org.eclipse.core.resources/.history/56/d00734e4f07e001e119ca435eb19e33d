@@ -1,0 +1,5 @@
+package gubing.bean;
+
+public class ScoreInfo {
+
+}

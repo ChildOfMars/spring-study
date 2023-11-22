@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	
+	<c:out value="${result }"></c:out>
+	
+	<form action="/javaweb202158359066/selectServletgb">
+		课程名：<input type="text" name="coursename">
+		<input type="submit" value="查询">
+	
+	</form>
+	
+	<c:if test="${resultList.size()==0 }">
+		<h1>没有该课程成绩</h1>
+	</c:if>
+	<c:if test="${resultList.size()！=0 }">
+		<c:forEach var="item" items="${ resultList}">
+			${item.sid}
+		</c:forEach>
+	</c:if>
+</body>
+</html>

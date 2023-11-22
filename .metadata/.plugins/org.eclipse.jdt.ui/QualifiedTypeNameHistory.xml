@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbutils.ResultSetHandler"/>
+    <fullyQualifiedTypeName name="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="bookStore.dao.JDBCUtils"/>
+    <fullyQualifiedTypeName name="bookStore.bean.Users"/>
+    <fullyQualifiedTypeName name="bookStore.dao.BaseDao"/>
+    <fullyQualifiedTypeName name="bookStore.bean.Book"/>
+    <fullyQualifiedTypeName name="javax.servlet.Filter"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebFilter"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanHandler"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.ScalarHandler"/>
+    <fullyQualifiedTypeName name="java.math.BigInteger"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbutils.QueryRunner"/>
+    <fullyQualifiedTypeName name="gubing.dao.JDBCUtils"/>
+    <fullyQualifiedTypeName name="org.apache.commons.dbutils.handlers.BeanListHandler"/>
+    <fullyQualifiedTypeName name="gubing.bean.ScoreInfo"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,68 @@
+package gubing.servlet;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import gubing.bean.ScoreInfo;
+import gubing.dao.JDBCUtils;
+
+/**
+ * Servlet implementation class SelectServletgb
+ */
+@WebServlet("/selectServletgb")
+public class SelectServletgb extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SelectServletgb() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String coursename = request.getParameter("coursename");
+		
+		if(coursename == null || coursename.isEmpty()) {
+			request.setAttribute("result", new ArrayList<>());
+			request.getRequestDispatcher("indexgb.jsp").forward(request, response);
+			return;
+		}
+		
+		QueryRunner query = new QueryRunner();
+		String sql = "select * from score_info where coursename like ?%";
+		
+		try {
+			List<ScoreInfo> result = query.query(JDBCUtils.getConnection(),sql,coursename,new BeanListHandler<>(ScoreInfo.class));
+			request.setAttribute("result", result);
+			request.getRequestDispatcher("indexgb.jsp").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

@@ -1,0 +1,14 @@
+package demo1.dao.impl;
+
+import demo1.bean.Student;
+import demo1.dao.StudentDao;
+
+public class StudentDaoImpl implements StudentDao{
+
+	@Override
+	public void addStudent(Student student) {
+		System.out.println("StudentImplDao......");
+		
+	}
+
+}
