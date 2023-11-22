@@ -1,5 +1,0 @@
-package gubing.dao;
-
-public class JDBCUtils {
-
-}

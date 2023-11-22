@@ -1,7 +1,0 @@
-package demo1.service.impl;
-
-import demo1.service.StudentService;
-
-public class StudentServiceImpl implements StudentService{
-
-}
