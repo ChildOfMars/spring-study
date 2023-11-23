@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<bean id="studentService" class="com.service.impl.StudentServiceImpl"></bean>
+	
+	<!-- 静态工厂 -->
+    <bean id="student1" class="com.factory.MyFactory" factory-method="staticBuidStudent">
+    	<property name="name" value="李云军"></property>
+    	<property name="age" value="18"></property>
+    </bean>
+    <!-- 动态工厂 -->
+    <bean id="studentFactory" class="com.factory.MyFactory"></bean>
+	<bean id="student2" factory-bean="studentFactory" factory-method="dynamicBuidStudent">
+		<property name="name" value="古冰"></property>
+		<property name="age" value="20"></property>
+	</bean>
+	<!-- p命名空间进行设置注入 -->
+	<bean id="student3" factory-bean="studentFactory" factory-method="dynamicBuidStudent"
+		p:name="金秋英" p:age="20" init-method="init" destroy-method="destory">
+	</bean>
+	<!-- 导入其它配置文件 -->
+	<import resource="beans.xml"/>
+	<!-- aop -->
+	<bean name="myAdvisor" class="com.aop.MyAspectAdvisor"></bean>
+	<aop:config>
+		<aop:aspect ref="myAdvisor">
+			<!-- 创建切入点 -->
+			<aop:pointcut expression="execution(public * com.service.impl.*.save(..))" id="save"/>
+			<!-- 前置切入 -->
+			<aop:before method="beforeSave" pointcut-ref="save"/>
+			<!-- 后置切入 -->
+			<aop:after method="afterSave" pointcut-ref="save"/>
+			<!-- 返回后执行 -->
+			<aop:after-returning method="afterReturn" pointcut-ref="save"/>
+			<!-- 抛出异常后执行 -->
+			<aop:after-throwing method="afterThrowing" pointcut-ref="save"/>
+			<!-- around增强 -->
+			<aop:around method="around" pointcut-ref="save"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
