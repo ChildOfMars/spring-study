@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<bean name="department" class="demo2.bean.Department">
-		<property name="name" value="肛肠科"></property>
-		<property name="director" value="张三"></property>
-	</bean>
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
-	<bean name="hospital" class="demo2.bean.Hospital">
-		<property name="name" value="永川人民医院"></property>
-		<property name="address" value="重庆市永川区"></property>
-		<property name="department" ref="department"></property>
-	</bean>
-    
-
+	<bean id="studentService" class="com.service.impl.StudentServiceImpl"></bean>
+	<bean name="myAdvisor" class="com.aop.MyAspectAdvisor"></bean>
+	<aop:config>
+		<aop:aspect ref="myAdvisor">
+			<aop:pointcut id="save" expression="execution(public * com.service.impl.*.save(..))" />
+			<aop:before method="beforeSave" pointcut-ref="save"/>
+		</aop:aspect>
+	</aop:config>
 </beans>

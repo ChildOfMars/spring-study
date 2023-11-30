@@ -34,7 +34,7 @@ public class Test {
 		context.close();
 	}
 	@org.junit.Test
-	public void testBeforeAop() {
+	public void testAop() {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		StudentService stuService = context.getBean("studentService",StudentService.class);
 		stuService.save(null);

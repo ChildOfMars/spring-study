@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="studentDao" class="demo1.dao.impl.StudentDaoImpl"></bean>
+	<bean id="studentService" class="demo1.service.impl.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="student" class="demo1.bean.Student">
+		<!-- 通过构造方法 -->
+		<constructor-arg>
+			<value>李四</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>20</value>
+		</constructor-arg>
+		<!-- 通过set方法 -->
+		<property name="name">
+			<value>张三</value>
+		</property>
+		<property name="age">
+			<value>18</value>
+		</property>
+		<!-- 注入null -->
+		<property name="address">
+			<null></null>
+		</property>
+		<!-- 注入List -->
+		<property name="list">
+			<list>
+				<value>item1</value>
+				<value>item2</value>
+				<value>item3</value>
+			</list>
+		</property>
+		<!-- 注入Set -->
+		<property name="set">
+			<set>
+				<value>item1</value>
+				<value>item2</value>
+				<value>item1</value>
+			</set>
+		</property>
+		<!-- 注入Map -->
+		<property name="map">
+			<map>
+				<entry key="key1" value="value1"></entry>
+				<entry key="key2" value="value2"></entry>
+				<entry key="key3" value="value3"></entry>
+			</map>
+		</property>
+		<!-- 注入数组 -->
+		<property name="strArray">
+			<array>
+				<value>value1</value>
+				<value>value2</value>
+				<value>value3</value>
+			</array>
+		</property>
+	</bean>
+    
+
+</beans>

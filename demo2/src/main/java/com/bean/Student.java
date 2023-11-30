@@ -15,12 +15,6 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public void init() {
-		System.out.println("初始化方法");
-	}
-	public void destory() {
-		System.out.println("销毁方法");
-	}
 	@Override
 	public String toString() {
 		return "Student [name=" + name + ", age=" + age + "]";

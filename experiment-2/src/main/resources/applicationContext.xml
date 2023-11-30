@@ -12,14 +12,14 @@
 	
 	<!-- 静态工厂 -->
     <bean id="student1" class="com.factory.MyFactory" factory-method="staticBuidStudent">
-    	<property name="name" value="李云军"></property>
-    	<property name="age" value="18"></property>
+    	<property name="name" value="金秋英"></property>
+    	<property name="age" value="20"></property>
     </bean>
     <!-- 动态工厂 -->
     <bean id="studentFactory" class="com.factory.MyFactory"></bean>
 	<bean id="student2" factory-bean="studentFactory" factory-method="dynamicBuidStudent">
-		<property name="name" value="古冰"></property>
-		<property name="age" value="20"></property>
+		<property name="name" value="张三"></property>
+		<property name="age" value="18"></property>
 	</bean>
 	<!-- p命名空间进行设置注入 -->
 	<bean id="student3" factory-bean="studentFactory" factory-method="dynamicBuidStudent"
