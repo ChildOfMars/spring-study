@@ -1,7 +1,7 @@
 .metadata/
 # Compiled class file
 *.class
-Servers
+/Servers
 # Log file
 *.log
 
