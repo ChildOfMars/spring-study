@@ -19,11 +19,11 @@ public class Test {
 	@org.junit.Test
 	public void testAddStudent() {
 		Student student = new Student();
-		student.setSname("李四");
-		student.setPassword("123456");
-		student.setAge(20);
-		student.setMajor("软件工程");
-		student.setStatus(1);
+		student.setSname("金秋英222");
+		student.setPassword("jinqiuying222");
+		student.setAge(21);
+		student.setMajor("JavaEE222");
+		student.setStatus(0);
 		int count = studentService.addStudent(student);
 		System.out.println(count);
 	}
